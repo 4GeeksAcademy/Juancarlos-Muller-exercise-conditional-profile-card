@@ -34,12 +34,8 @@ function render(variables = {}) {
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${
-            variables.name !== null
-              ? variables.name + " "
-              : "Insert your First Name "
-          }${
-    variables.lastname !== null ? variables.lastname : "Insert your Last Name"
-  }</h1> <h2>${
+            variables.name !== null ? variables.name + " " : "Insert your Name "
+          }${variables.lastname !== null ? variables.lastname : " "}</h1> <h2>${
     variables.role !== null ? variables.role : "Select your role"
   }</h2>
           <h3>${
