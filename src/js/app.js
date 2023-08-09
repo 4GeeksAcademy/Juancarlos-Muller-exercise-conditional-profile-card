@@ -34,16 +34,33 @@ function render(variables = {}) {
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${
-            variables.name !== null ? variables.name : "Insert your name"
-          }</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+            variables.name !== null
+              ? variables.name + " "
+              : "Insert your First Name "
+          }${
+    variables.lastname !== null ? variables.lastname : "Insert your Last Name"
+  }</h1> <h2>${
+    variables.role !== null ? variables.role : "Select your role"
+  }</h2>
+          <h3>${
+            variables.country !== null
+              ? variables.country
+              : "Select your Country"
+          }</h3>
+
+          
+          <ul ${
+            variables.socialMediaPosition == "position-left"
+              ? 'class="position-left"'
+              : 'class="position-right"'
+          } > 
+            <li><a href="https://twitter.com/4geeksacademy"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://github.com/4geeksacademy"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/4geeksacademy"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/4geeksacademy"><i class="fa-brands fa-instagram"></i></a></li>
           </ul>
+         
+         
         </div>
     `;
 }
@@ -87,6 +104,7 @@ window.onload = function() {
           : this.value == "false"
           ? false
           : this.value;
+
       render(Object.assign(window.variables, values)); // render again the card with new valus
     });
   });
